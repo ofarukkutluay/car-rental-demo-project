@@ -1,0 +1,23 @@
+<div *ngIf="dataLoaded==false" class="text-primary" role="status">
+    <span class=" spinner-border visually-hidden"></span>
+    <a>{{message}} {{dataLoaded}} </a>
+</div>
+
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>User Id</th>
+            <th>Company Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.userId }}</td>
+            <td>{{ customer.companyName }}</td>
+        </tr>
+
+    </tbody>
+
+</table>

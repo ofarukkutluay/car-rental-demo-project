@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
 
@@ -11,10 +12,8 @@ export class RentalService {
 
   constructor(private http:HttpClient) { }
 
-  apiUrl: string = 'https://localhost:44340/api';
-
   getRentals():Observable<ListResponseModel<Rental>>{
-    let newPath = this.apiUrl+"/rentals/getall";
+    let newPath = environment.apiUrl+"/rentals/getall";
     return this.http.get<ListResponseModel<Rental>>(newPath);
   }
 }

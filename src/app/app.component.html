@@ -1,6 +1,14 @@
+<app-navi></app-navi>
 <div class="container">
-    <app-navi></app-navi>
 
-    <router-outlet></router-outlet>
+
+    <div class="row">
+        <div class="col-lg-2">
+            <app-nav-menu></app-nav-menu>
+        </div>
+        <div class="col-lg-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 
 </div>

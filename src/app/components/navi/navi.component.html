@@ -18,6 +18,10 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="customers">Customers</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="rentals">Rentals</a>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -25,7 +29,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" *ngFor="let brand of brands"
-                                routerLink="cars/brands/{{brand.id}}">{{brand.name}}</a></li>
+                                routerLink="/cars/brands/{{brand.id}}">{{brand.name}}</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -38,15 +42,28 @@
                         Colors
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" *ngFor="let color of colors"
-                                routerLink="cars/colors/{{color.id}}" routerLinkActive="active">{{color.name}}</a></li>
+                        <li><a class="dropdown-item" *ngFor="let color of colors" routerLink="/cars/colors/{{color.id}}"
+                                routerLinkActive="active">{{color.name}}</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" routerLink="colors">All Color List</a></li>
                     </ul>
                 </li>
+
             </ul>
+
         </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="rent">Rent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="register">Register</a>
+            </li>
+        </ul>
     </div>
 </nav>

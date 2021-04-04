@@ -1,3 +1,10 @@
+<div class="mb-3">
+    <h5><label class="form-label">Ara</label></h5>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText">
+    <div id="searchHelp" class="form-text">Araç markasını yazınız...</div>
+</div>
+
+
 <div *ngIf="dataLoaded==false" class="text-primary" role="status">
     <span class=" spinner-border visually-hidden"></span>
     <a>{{message}} {{dataLoaded}} </a>
@@ -11,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let brand of brands">
+        <tr *ngFor="let brand of brands | brandFilter:filterText">
             <td>{{brand.id}}</td>
             <td>{{brand.name}}</td>
         </tr>

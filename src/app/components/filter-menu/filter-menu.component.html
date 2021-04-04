@@ -1,0 +1,18 @@
+<h5 class="my-2">Filtrele</h5>
+<div class="card">
+        <div class="card-body">
+            <select class="form-select" [(ngModel)]="brandId" id="brandId" name="brandId">
+                <option selected>Select Brand</option>
+                <option  *ngFor="let brand of brands" [value]="brand.id" [selected]="getSelectedBrand(brand.id)">{{brand.name}}</option>
+            </select>
+        </div>
+        <div class="card-body">
+            <select class="form-select" [(ngModel)]="colorId" id="colorId" name="colorId">
+                <option selected>Select Color</option>
+                <option *ngFor="let color of colors" [value]="color.id" [selected]="getSelectedBrand(color.id)">{{color.name}}</option>
+            </select>
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-primary mb-3" routerLink="/cars/filter/{{brandId}}/{{colorId}}" routerLink="active">Filtrele</button>
+        </div>
+</div>

@@ -8,7 +8,8 @@ export class FilterPipePipe implements PipeTransform {
 
   transform(value: CarDto[], filterText: string): CarDto[] {
     filterText = filterText ? filterText.toLocaleLowerCase() : "";
-    return filterText ? value.filter((c: CarDto) => c.brandName.toLocaleLowerCase().indexOf(filterText) !== -1) : value
+    let brandNameFilter = value.filter((c: CarDto) => c.brandName.toLocaleLowerCase().indexOf(filterText) !== -1);
+    return filterText ? brandNameFilter : value
   }
 
 }

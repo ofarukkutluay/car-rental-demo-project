@@ -13,6 +13,7 @@ export class BrandsComponent implements OnInit {
   brands!:Brand[];
   dataLoaded = false;
   message!: string;
+  filterText:string="";
 
   ngOnInit(): void {
     this.getBrands();

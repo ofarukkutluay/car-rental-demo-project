@@ -1,4 +1,4 @@
-export class ResponseModel{
-    success!:boolean;
-    message!:string;
+export interface ResponseModel{
+    success:boolean;
+    message:string;
 }

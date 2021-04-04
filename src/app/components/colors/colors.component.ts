@@ -18,6 +18,7 @@ export class ColorsComponent implements OnInit {
   colors: Color[]=[];
   dataLoaded = false;
   message!: string;
+  filterText:string="";
 
   ngOnInit(): void {
 

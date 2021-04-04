@@ -23,7 +23,9 @@ export class CarsComponent implements OnInit {
     
     console.log(this.cars)
     this.activatedRoute.params.subscribe(params => {
-      if (params["brandId"]) {
+      if (params["brandId"] && params["colorId"]) {
+        this.getCarDetailsByBrandAndColor(params["brandId"],params["colorId"]);
+      }else if (params["brandId"]) {
         let brandId:number=params["brandId"]
         this.getCarDetailsByBrandId(brandId)
       }else if(params["colorId"]){  
@@ -52,6 +54,7 @@ export class CarsComponent implements OnInit {
       this.message = response.message;
     })
   }
+  
   getCarDetailsByColorId(id:number){
     this.carService.getCarDetailsByColorId(id).subscribe(response => {
       this.cars = response.data;
@@ -60,6 +63,13 @@ export class CarsComponent implements OnInit {
     })
   }
 
+  getCarDetailsByBrandAndColor(brandId:number,colorId:number){
+    this.carService.getCarDetailsByBrandAndColor(brandId,colorId).subscribe(resp=>{
+      this.cars=resp.data;
+      this.dataLoaded = resp.success;
+      this.message = resp.message;
+    })
+  }
 
   setImage(car: CarDto) {
     if (car.imagePath) {

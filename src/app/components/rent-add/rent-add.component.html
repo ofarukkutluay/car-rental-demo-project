@@ -1,0 +1,86 @@
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Kiralama ekranı</h2>
+            <p class="lead">Aracı kiralamak için fromu doldurunuz</p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Your rent car</span>
+                    <span class="badge bg-primary rounded-pill">1</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <img class="card-img-top" src="{{apiUrl}}{{currentCar.imagePath}}" alt="">
+                            <h6 class="my-0">{{currentCar.brandName}}</h6>
+                            
+                            <small class="text-muted">{{currentCar.description}}</small>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Günlük Kiralama Bedeli (TRY)</span>
+                        <strong>{{currentCar.dailyPrice|currency:'₺'}}</strong>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 *ngIf="!rental" class="mb-3">Kiralayan</h4>
+                <form *ngIf="!rental" class="needs-validation" [formGroup]="rentalAddForm" (ngSubmit)="createRental()" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="customerId" class="form-label">Customer Name</label>
+                            <select class="form-control" formControlName="customerId" id="customerId">
+                                <option *ngFor="let customer of customers" [value]="customer.id">
+                                    {{customer.companyName}} </option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Valid Customer name is required.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="carId" class="form-label">Car Brand</label>
+                            <select *ngIfElse="currentCar; noCurrentCar" class="form-control" formControlName="carId"
+                                id="carId">
+                                <option *ngFor="let car of cars" [value]="car.id">{{car.brandName}} </option>
+                            </select>
+                            <select #noCurrentCar class="form-control" formControlName="carId" id="carId">
+                                <option [value]="currentCar.id" selected>{{currentCar.brandName}} </option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Valid car brand is required.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="rentDate" class="form-label">Rent Date</label>
+                            <input type="date" class="form-control" formControlName="rentDate" id="rentDate"
+                                placeholder="" value="" >
+                            <div class="invalid-feedback">
+                                Valid rent date is required.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="returnDate" class="form-label">Return Date</label>
+                            <input type="date" class="form-control" formControlName="returnDate" id="returnDate"
+                                placeholder="" value="">
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                </form>
+                <app-payment *ngIf="rental" [rental]="rental"></app-payment>
+            </div>
+        </div>
+    </main>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017–2021 Company Name</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>

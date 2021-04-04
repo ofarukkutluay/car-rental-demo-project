@@ -1,29 +1,39 @@
-<div class="mb-3">
-    <h5><label class="form-label">Ara</label></h5>
-        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" >
-    <div id="searchHelp" class="form-text">Araç modelini yazınız...</div>
-  </div>
-<div *ngIf="dataLoaded==false" class="text-primary" role="status">
-    <span class=" spinner-border visually-hidden"></span>
-    <a>{{message}} {{dataLoaded}} </a>
-</div>
-<div>
-    <div *ngIf="dataLoaded==true" class="row">
+<div class="row">
+    
 
-        <div *ngFor="let car of cars | filterPipe:filterText" class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img  class="card-img-top" [src]="setImage(car)" alt=""></a> 
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a routerLink="cars/{{car.id}}" routerLinkActive="active">{{car.colorName}} renk, {{car.brandName}}</a>
-                    </h4>
-                    <h5>{{car.dailyPrice | currency:'TL':'₺'}}</h5>
-                    <p class="card-text"> {{car.description}} ,image {{car.imagePath}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+    <div class="col-lg-9">
+        <div class="mb-3">
+            <h5><label class="form-label">Ara</label></h5>
+            <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText">
+            <div id="searchHelp" class="form-text">Araç modelini yazınız...</div>
+        </div>
+        <div *ngIf="dataLoaded==false" class="text-primary" role="status">
+            <span class=" spinner-border visually-hidden"></span>
+            <a>{{message}} {{dataLoaded}} </a>
+        </div>
+        <div>
+            <div *ngIf="dataLoaded==true" class="row">
+
+                <div *ngFor="let car of cars | filterPipe:filterText" class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <a href="#"><img class="card-img-top" [src]="setImage(car)" alt=""></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="cars/{{car.id}}" routerLinkActive="active">{{car.colorName}} renk,
+                                    {{car.brandName}}</a>
+                            </h4>
+                            <h5>{{car.dailyPrice | currency:'TL':'₺'}}</h5>
+                            <p class="card-text"> {{car.description}} ,image {{car.imagePath}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-lg-3">
+        <app-filter-menu></app-filter-menu>
     </div>
 </div>

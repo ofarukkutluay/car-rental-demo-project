@@ -14,6 +14,8 @@ export class BrandsComponent implements OnInit {
   dataLoaded = false;
   message!: string;
   filterText:string="";
+  brand!:Brand;
+  ifAdd:boolean=false;
 
   ngOnInit(): void {
     this.getBrands();
@@ -25,6 +27,12 @@ export class BrandsComponent implements OnInit {
       this.dataLoaded = response.success;
       this.message = response.message;
     })
+  }
+  createBrand(id:number,name:string){
+    this.brand = {id:id,name:name}
+  }
+  ifAddBrand(){
+    this.ifAdd=true;
   }
 
 }

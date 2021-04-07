@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Color } from 'src/app/models/color';
 import { ColorService } from 'src/app/services/color.service';
@@ -15,16 +15,18 @@ export class ColorsComponent implements OnInit {
   constructor(private colorService: ColorService,
     private activatedRoute: ActivatedRoute) { }
 
-  colors: Color[]=[];
+
+  colors!: Color[];
   dataLoaded = false;
   message!: string;
   filterText:string="";
+  color!:Color;
+  ifAdd:boolean=false;
 
   ngOnInit(): void {
 
     this.getColors();
-
-
+    
   };
 
   getColors() {
@@ -32,7 +34,15 @@ export class ColorsComponent implements OnInit {
       this.colors = response.data;
       this.dataLoaded = response.success;
       this.message = response.message;
+      console.log(JSON.stringify(response.data))
     })
+    
   };
+  createColor(id:number,name:string){
+    this.color = {id:id,name:name}
+  }
+  ifAddColor(){
+    this.ifAdd = true
+  }
 
 }

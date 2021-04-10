@@ -32,7 +32,7 @@
                     <td>{{ car.modelYear }}</td>
                     <td>{{ car.dailyPrice }}</td>
                     <td>{{ car.description }}</td>
-                    <td><button type="button" class="btn btn-outline-success" (click)="createCar(car.id)">Güncelle</button></td>
+                    <td><button type="button" class="btn btn-outline-success" (click)="createCarId(car.id)">Güncelle</button></td>
                     
                 </tr>
 
@@ -46,7 +46,7 @@
         </div>
         <br>
         <div class="row">
-            <app-car-update *ngIf="car" [car]="car"></app-car-update>
+            <app-car-update *ngIf="carId" [carId]="carId"></app-car-update>
         </div>
 
     </div>

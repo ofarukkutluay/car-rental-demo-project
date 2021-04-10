@@ -17,7 +17,7 @@ export class CarsListComponent implements OnInit {
   dataLoaded = false;
   message!: string;
   filterText:string="";
-  car!:Car;
+  carId!:number;
   ifAdd:boolean=false;
 
   ngOnInit(): void {
@@ -35,14 +35,10 @@ export class CarsListComponent implements OnInit {
     })
     
   };
-  createCar(id:number){
-    
-    this.carService.getCarById(id).subscribe(resp=>{
-      this.car= Object.assign({},resp.data[0]) 
-      console.log(this.car)
-    })
-    
+  createCarId(id:number){
+    this.carId = id;
   }
+  
   ifAddCar(){
     this.ifAdd = true
   }

@@ -19,7 +19,8 @@ export class CarAddComponent implements OnInit {
     colorId: new FormControl('', Validators.required),
     modelYear: new FormControl('', Validators.required),
     dailyPrice: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required)
+    description: new FormControl('', Validators.required),
+    findeksScore:new FormControl('',Validators.required)
   })
   brands!: Brand[];
   colors!: Color[];

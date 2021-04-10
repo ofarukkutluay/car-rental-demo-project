@@ -15,15 +15,18 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarUpdateComponent implements OnInit {
 
-  @Input() car!: Car;
+  @Input() carId!: number;
   carUpdateForm = new FormGroup({
     id: new FormControl(''),
     brandId: new FormControl('', Validators.required),
     colorId: new FormControl('', Validators.required),
     modelYear: new FormControl('', Validators.required),
     dailyPrice: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required)
+    description: new FormControl('', Validators.required),
+    findeksScore:new FormControl('',Validators.required)
+    
   })
+  car!:Car;
   brands!: Brand[];
   colors!: Color[];
 
@@ -34,6 +37,7 @@ export class CarUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.getBrands();
     this.getColors();
+    this.createCar(this.carId);
   }
 
   getBrands() {
@@ -43,6 +47,14 @@ export class CarUpdateComponent implements OnInit {
       }
       this.brands = resp.data;
     })
+  }
+  createCar(id:number){
+    
+    this.carService.getCarById(id).subscribe(resp=>{
+      this.car= Object.assign({},resp.data[0]) 
+      console.log(this.car)
+    })
+    
   }
 
   getColors() {

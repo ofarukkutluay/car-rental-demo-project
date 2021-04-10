@@ -49,6 +49,7 @@ export class CarService {
     car.colorId=(Number)(car.colorId);
     car.modelYear=(Number)(car.modelYear);
     car.dailyPrice=(Number)(car.dailyPrice);
+    car.findeksScore=(Number)(car.findeksScore);
     return this.http.post<ResponseModel>(newPath,car);
   }
   updateCar(car:Car){

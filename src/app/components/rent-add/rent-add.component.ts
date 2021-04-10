@@ -1,12 +1,14 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import {  FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { CarDto } from 'src/app/models/carDto';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { FindeksService } from 'src/app/services/findeks.service';
 
 import { RentalService } from 'src/app/services/rental.service';
 import { environment } from 'src/environments/environment';
@@ -16,7 +18,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './rent-add.component.html',
   styleUrls: ['./rent-add.component.css']
 })
-export class RentAddComponent implements OnInit{
+export class RentAddComponent implements OnInit {
 
   rentalAddForm = new FormGroup({
     carId: new FormControl('', Validators.required),
@@ -25,18 +27,20 @@ export class RentAddComponent implements OnInit{
     returnDate: new FormControl('', Validators.required)
   });
   rental!: Rental;
-  cars: CarDto[]=[];
+  cars: CarDto[] = [];
   customers!: Customer[];
+  customer!: Customer
   currentCar!: CarDto;
-  apiUrl:string=environment.staticFilesUrl;
+  apiUrl: string = environment.staticFilesUrl;
 
   constructor(private rentalService: RentalService,
     private carService: CarService,
     private customerService: CustomerService,
     private toastrService: ToastrService,
-    private activatedRoute:ActivatedRoute,
-    private router:Router) { }
- 
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private findeksService: FindeksService) { }
+
 
 
   ngOnInit(): void {
@@ -44,7 +48,7 @@ export class RentAddComponent implements OnInit{
       if (params['carId']) {
         let carId = params['carId'];
         this.getCarDetailsById(carId);
-      }else{
+      } else {
         this.getCarsDetails();
       }
     })
@@ -59,8 +63,8 @@ export class RentAddComponent implements OnInit{
   }
 
   getCarDetailsById(carId: number) {
-    this.carService.getCarDetailsById(carId).subscribe(resp=>{
-      this.currentCar=resp.data[0]
+    this.carService.getCarDetailsById(carId).subscribe(resp => {
+      this.currentCar = resp.data[0]
     })
   }
 
@@ -70,13 +74,20 @@ export class RentAddComponent implements OnInit{
     })
   }
 
-  createRental(){
+ 
+
+  createRental() {
     if (this.rentalAddForm.valid) {
-      this.rental = this.rentalAddForm.value
-      console.log(JSON.stringify(this.rental));
-      this.toastrService.success("Ödeme Sayfasına yönlendiriliyorsunuz!","Başarılı");
-      //this.router.navigate(["cars/rent/payment/"+this.rental.carId]);
-    }else {
+           this.findeksService.whatFindeksScore(this.rentalAddForm.value.customerId).subscribe(resp => {
+        if (resp.data >= this.currentCar.findeksScore) {
+          this.rental = this.rentalAddForm.value
+          console.log(JSON.stringify(this.rental));
+          this.toastrService.success("Ödeme Sayfasına yönlendiriliyorsunuz!", "Başarılı");
+          //this.router.navigate(["cars/rent/payment/"+this.rental.carId]);
+        }
+      })
+
+    } else {
       this.toastrService.error("Formunuz eksik", "Dikkat")
     }
   }

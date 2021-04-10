@@ -49,11 +49,17 @@
                             Security code required
                         </div>
                     </div>
+                   
                 </div>
 
                 <hr class="my-4">
                 <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
             </form>
+            <div class="checkbox mb-3">
+                <label>
+                  <input [(ngModel)]="isChecked" type="checkbox" value="remember-me" checked> Kartı daha sonra kullanmak için kaydelim mi?
+                </label>
+              </div>
 
         </div>
 

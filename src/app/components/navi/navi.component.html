@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="cars-list">Cars Lis</a>
+                    <a class="nav-link" routerLink="cars-list">Cars List</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="customers">Customers</a>
@@ -58,10 +58,20 @@
             <!-- <li class="nav-item">
                 <a class="nav-link" routerLink="rent">Rent</a>
             </li> -->
-            <li class="nav-item">
+            
+            <li class="nav-item dropdown" *ngIf="isAuthenticated()" >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false" >
+                    {{user?.firstName}} {{user?.lastName}} Kişisi
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" (click)="logOut()">Çıkış Yap</a></li>
+                </ul>
+            </li>
+            <li class="nav-item" *ngIf="isAuthenticated()==false">
                 <a class="nav-link" routerLink="login">Login</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="isAuthenticated()==false">
                 <a class="nav-link" routerLink="register">Register</a>
             </li>
         </ul>

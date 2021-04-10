@@ -4,6 +4,18 @@
 
 #### Aynı Projeyi geliştiriyoruz,
 -------------------------------------------------------------------------------------------------------------------------------------------
+### Engin Demiroğ Kamp Kurs 20. Gün Ödev 1
+
+#### Yapılanlar;
+* Reactive Forms kullanılarak ilgili list sayfalarında Brand,Color ve Car için Ekleme ve Güncelleme yetenekleri getirildi.
+
+#### Ödev içeriği;
+* Reactive Forms kullanarak Brand, Color, Car Ekleme sayfalarını oluşturunuz.
+* Brand,Color,Car listesinde güncelleme butonu ekleyiniz. Tıklanan ilgili elemanın detay sayfasına yönlendirerek güncelleme imkanı veriniz.
+* Toast desteği veriniz.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 ### Engin Demiroğ Kamp Kurs 19. Gün Ödev 3
 
 #### Yapılanlar;

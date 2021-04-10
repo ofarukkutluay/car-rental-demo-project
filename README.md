@@ -4,6 +4,24 @@
 
 #### Aynı Projeyi geliştiriyoruz,
 -------------------------------------------------------------------------------------------------------------------------------------------
+### Engin Demiroğ Kamp Kurs 21. Gün Ödev 1
+
+#### Yapılanlar;
+* Login Register Yetenekleri getirildi
+* Local Storage için servis yazıldı
+* Login için nav barda düzenlemeler yapıldı
+* kredi kartı kayıt özelliği ve sonradan kullanma içeriği getirildi
+
+#### Ödev içeriği;
+* Login/Register yetenekleri getiriniz.
+* LocalStorage için servis yazınız. Ekleme/Getirme/Silme
+* Giriş ve register için nav'a butonlar ekleyiniz.
+* Eğer giriş yapılmamışsa nav'da bu butonlar olsun. Giriş yapılmışsa bu butonlar yerine müşteri adı ex: "Engin Demiroğ" yazsın.
+* Kullanıcı adını yazdığınız kısım açılır kutu olmalı.
+* Kullanıcı bilgilerini görüp güncelleyebilmelidir.
+* Kredi kartıyla ödeme alındığında kullanıcıya kredi kartını kaydedelim mi? Sorusu yöneltiniz. Kaydetmek isteyen müşteriye sonraki ödemede kayıtlı kredi kartını gösteriniz.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 ### Engin Demiroğ Kamp Kurs 20. Gün Ödev 1
 
 #### Yapılanlar;

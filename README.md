@@ -4,7 +4,7 @@
 
 #### Aynı Projeyi geliştiriyoruz,
 -------------------------------------------------------------------------------------------------------------------------------------------
-### Engin Demiroğ Kamp Kurs 21. Gün Ödev 1
+### Engin Demiroğ C# - Angular Kamp 21. Gün Ödev 1
 
 #### Yapılanlar;
 * Login Register Yetenekleri getirildi
@@ -22,7 +22,7 @@
 * Kredi kartıyla ödeme alındığında kullanıcıya kredi kartını kaydedelim mi? Sorusu yöneltiniz. Kaydetmek isteyen müşteriye sonraki ödemede kayıtlı kredi kartını gösteriniz.
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-### Engin Demiroğ Kamp Kurs 20. Gün Ödev 1
+### Engin Demiroğ C# - Angular Kamp 20. Gün Ödev 1
 
 #### Yapılanlar;
 * Reactive Forms kullanılarak ilgili list sayfalarında Brand,Color ve Car için Ekleme ve Güncelleme yetenekleri getirildi.
@@ -34,7 +34,7 @@
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-### Engin Demiroğ Kamp Kurs 19. Gün Ödev 3
+### Engin Demiroğ C# - Angular Kamp 19. Gün Ödev 3
 
 #### Yapılanlar;
 * Car, Brand ve Color için filterpipe'lar oluşturuldu.
@@ -56,7 +56,7 @@
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-### Engin Demiroğ Kamp Kurs 18. Gün Ödev 1
+### Engin Demiroğ C# - Angular Kamp 18. Gün Ödev 1
 
 #### Yapılanlar;
 * Marka listesi oluşturuldu.
@@ -71,7 +71,7 @@
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-### Engin Demiroğ Kamp Kurs 17. Gün Ödev 1
+### Engin Demiroğ C# - Angular Kamp 17. Gün Ödev 1
 
 #### Yapılanlar;
 * Bootstrap entegre edildi.
